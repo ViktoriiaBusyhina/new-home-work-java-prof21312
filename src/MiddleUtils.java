@@ -1,9 +1,11 @@
 public class MiddleUtils {
 
-    public static double middleTwoNumbers( int first, int second){
+    public static double middlenumbers(double first, double second){
+
         return ( first + second) / 2;
     }
-    public static double middleThreeNumbers( int first, int second, int third) {
+    public static double middlenumbers(double first, double second, int third) {
+
         return (first + second + third) / 3;
     }
 }
