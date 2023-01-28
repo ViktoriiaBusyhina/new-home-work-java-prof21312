@@ -1,3 +1,5 @@
+
+
 public class Pensioner extends Person{
    private double pension;
     public Pensioner(String name, int years, int height, int weight, double pension) {
@@ -9,7 +11,7 @@ public class Pensioner extends Person{
     public void die() {
         System.out.println("и, что-то произошло....");
         super.die();
-        System.out.println("Ага, вот так случилось!");
+        System.out.println("Ага, вот так случилось! Зато у меня " + getKids().size() + "детей");
     }
 
     public void abc(int a) {

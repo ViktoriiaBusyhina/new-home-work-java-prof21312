@@ -4,6 +4,8 @@ public class Worker extends Person implements AbleToCalculatePension {
 
     private Month month;
 
+    int kids;
+
 
     @Override
     public void die() {
@@ -105,8 +107,9 @@ public class Worker extends Person implements AbleToCalculatePension {
     public double requestFundToCalculationPension() {
         PensionFund pensionFund = new PensionFund("Пенсионный фонд Берлин ", Fund.STATE, "16-05-2000" );
         int age = getAge();
-        double result = pensionFund.calculatePension(age, minSalary, maxSalary);
-        return result;
+        double newSalary = minSalary + ( getKids().size() * 200);
+       double result = pensionFund.calculatePension(age, newSalary, maxSalary);
+        return result   ;
     }
 }
 

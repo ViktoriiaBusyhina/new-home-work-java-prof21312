@@ -1,7 +1,12 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        List<String> children = new ArrayList<>();
+        children.add("Вася");
+        children.add("Петя");
         //PensionFund statePensionFund = new PensionFund("Goverment", true, "23-08-1989");
         //PensionFund notStatePensionFund = new PensionFund("New-York lions bank", false, "23-09-2009");
         //PensionFund notStatePensionFund1 = new PensionFund("New-York lions bank", false, "23-09-2009");
@@ -76,6 +81,8 @@ public class Main {
         worker.setMaxSalary(2000);
         System.out.println(worker + ", ndjz gtycbz cjcnfdbn:" );
         System.out.println(answer);
+
+
 
 
         //System.out.println(Month.APRIL.getNumber());

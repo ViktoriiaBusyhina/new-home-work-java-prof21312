@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Person {
@@ -20,6 +22,17 @@ public abstract class Person {
 
     public void setSex(Sex sex) {
         this.sex = sex;
+    }
+
+    private List <String> kids;
+
+
+    public void setKids(List<String> kids) {
+        this.kids = kids;
+    }
+
+    public List<String> getKids() {
+        return kids;
     }
 
     public Person(String name, int age, int growth, int weight) {
