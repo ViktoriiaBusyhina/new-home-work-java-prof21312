@@ -56,30 +56,30 @@ public class Main {
         Worker worker = new Worker();
         Worker secondworker = new Worker();
 
-        worker.setMinSalary(1500);
-        worker.setMaxSalary(1800);
-        worker.setMonth(Month.DECEMBER);
+       // worker.setMinSalary(1500);
+        //worker.setMaxSalary(1800);
+        //worker.setMonth(Month.DECEMBER);
 
-        System.out.println(Arrays.toString(Month.values()));
+        //System.out.println(Arrays.toString(Month.values()));
 
-        Month[] months = Month.values();
-        System.out.println(months[4]);
+        //Month[] months = Month.values();
+        //System.out.println(months[4]);
 
-        Month feb = Month.valueOf("FEBRUARY");
-        System.out.println(feb.getNumber());
+        //Month feb = Month.valueOf("FEBRUARY");
+        //System.out.println(feb.getNumber());
 
 
-        worker.setNewSalary();
+       // worker.setNewSalary();
 
-        System.out.println(worker.getMinSalary());
-        System.out.println(worker.getMaxSalary());
+        //System.out.println(worker.getMinSalary());
+        //System.out.println(worker.getMaxSalary());
 
-        double answer = worker.requestFundToCalculationPension();
+        //double answer = worker.requestFundToCalculationPension();
 
-        worker.setMinSalary(100);
-        worker.setMaxSalary(2000);
-        System.out.println(worker + ", ndjz gtycbz cjcnfdbn:" );
-        System.out.println(answer);
+        //worker.setMinSalary(100);
+        //worker.setMaxSalary(2000);
+        //System.out.println(worker + ", ndjz gtycbz cjcnfdbn:" );
+        //System.out.println(answer);
 
         List<String> children = new ArrayList<>();
         children.add("Вася");
@@ -99,9 +99,13 @@ public class Main {
 
         List<Company> nameforworkercompany = new ArrayList<>();
         nameforworkercompany.add(new Company("Adidas"));
+        nameforworkercompany.add(new Company("Audi"));
 
         List<Company> nameforworkersekondcompany = new ArrayList<>();
         nameforworkersekondcompany.add(new Company("BMW"));
+
+        worker.setCompany(nameforworkercompany);
+        secondworker.setCompany(nameforworkersekondcompany);
 
         worker.showCompany();
         secondworker.showCompany();

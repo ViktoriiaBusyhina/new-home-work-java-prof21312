@@ -21,10 +21,10 @@ public class PensionFund {
                 double middleSalary = MiddleUtils.middlenumbers(minSalary, maxSalary);
                 break;
             case NON_STATE:
-                double middleSalary = MiddleUtils.middlenumbers(minSalary, maxSalary, MIDDLE_SALARY);
+              //  double middleSalary = MiddleUtils.middlenumbers(minSalary, maxSalary, MIDDLE_SALARY);
                 break;
-           case SCAMMERS -> middleSalary = 0;
-           break;
+         //  case SCAMMERS -> middleSalary = 0;
+         //  break;
         }
         return minSalary * year * COEFFICIENT;
     }

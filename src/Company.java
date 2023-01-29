@@ -1,18 +1,18 @@
 import java.util.Objects;
 
 public class Company {
-    private String name;
+    private String company;
 
     public Company(String name) {
-        this.name = name;
+        this.company = name;
     }
 
-    public String getName() {
-        return name;
+    public String getCompany() {
+        return company;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     @Override
@@ -20,18 +20,18 @@ public class Company {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Company company = (Company) o;
-        return Objects.equals(name, company.name);
+        return Objects.equals(this.company, company.company);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(company);
     }
 
     @Override
     public String toString() {
         return "Company{" +
-                "name='" + name + '\'' +
+                "name='" + company + '\'' +
                 '}';
     }
 }

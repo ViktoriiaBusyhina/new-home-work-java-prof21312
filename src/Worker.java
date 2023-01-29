@@ -6,15 +6,24 @@ public class Worker extends Person implements AbleToCalculatePension {
 
     private Month month;
 
-    private List<String> company;
+    private List<Company> company;
 
     public void showCompany(){
-        for (String s : company) {
-            System.out.println("Я работал в следующих компаниях: " + getName());
+        System.out.println("Я работал в следующих компаниях: ");
+        for (Company s : company) {
+            System.out.println(s.getCompany());
+
         }
+
     }
 
+    public void setCompany(List<Company> company) {
+        this.company = company;
+    }
 
+    public List<Company> getCompany() {
+        return company;
+    }
 
     @Override
     public void die() {
