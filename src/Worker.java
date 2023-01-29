@@ -1,10 +1,19 @@
+import java.util.List;
+
 public class Worker extends Person implements AbleToCalculatePension {
     double minSalary;
     double maxSalary;
 
     private Month month;
 
-    int kids;
+    private List<String> company;
+
+    public void showCompany(){
+        for (String s : company) {
+            System.out.println("Я работал в следующих компаниях: " + getName());
+        }
+    }
+
 
 
     @Override
@@ -101,6 +110,10 @@ public class Worker extends Person implements AbleToCalculatePension {
         maxSalary *= number;
 
     }
+
+
+
+
 
 
     @Override

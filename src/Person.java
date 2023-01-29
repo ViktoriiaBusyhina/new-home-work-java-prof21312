@@ -26,6 +26,15 @@ public abstract class Person {
 
     private List <String> kids;
 
+    public void showKids() {
+        int x = kids.size();
+        for (String kid : kids) {
+            System.out.println(kid);
+
+        }
+        System.out.println("У меня детей:" + x);
+    }
+
 
     public void setKids(List<String> kids) {
         this.kids = kids;
