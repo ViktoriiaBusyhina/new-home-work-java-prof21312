@@ -1,3 +1,5 @@
+package Classes;
+
 public class MiddleUtils {
 
     public static double middlenumbers(double first, double second){

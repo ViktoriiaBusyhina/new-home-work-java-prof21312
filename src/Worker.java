@@ -1,42 +1,42 @@
+import Classes.AbleToCalculatePension;
+
 import java.util.List;
+import java.util.Set;
 
 public class Worker extends Person implements AbleToCalculatePension {
-    double minSalary;
-    double maxSalary;
+
+    private static final int MONEY_PER_CHILD = 200;
+
+    private double minSalary;
+    private double maxSalary;
 
     private Month month;
 
-    private List<Company> company;
+    private List<Company> companyList;
 
-    public void showCompany(){
-        System.out.println("Я работал в следующих компаниях: ");
-        for (Company s : company) {
-            System.out.println(s.getCompany());
+    private Set<PensionFund> availablePensionFunds;
 
-        }
-
+    public Set<PensionFund> getAvailablePensionFunds() {
+        return availablePensionFunds;
     }
 
-    public void setCompany(List<Company> company) {
-        this.company = company;
+    public void setAvailablePensionFunds(Set<PensionFund> availablePensionFunds) {
+        this.availablePensionFunds = availablePensionFunds;
     }
 
-    public List<Company> getCompany() {
-        return company;
-    }
+    //Не так давно мы делали в классе Worker метод, который рассчитывает пенсию.
+    //Для расчета пенсии использовался "хардкодинг", когда мы прямо в методе создавали непонятный пенсионный фонд. Сегодня от этого откажемся.
+    //
+    //1) Добавить в класс Worker поле - множество (Set) из Пенсионных фондов.
+    //2) Добавить для него гетер и сетер
+    //3) в методе расчета пенсии взять Set из пенсионных фондов и для каждого из них посчитать возможную пенсию, выбрать наиболее выгодное предложение и вернуть (return) из этого метода именно самое лучшее предложение (там, где больше всего заплатят). (как это реализовать - полностью на вашей совести)
+    //4) Создать в Main несколько работников и несколько сетов из пенсионных фондов. Заполнить каждому работнику доступные ему пенсионный фонды (см. пункт 1)
+    //5) запустить расчет пенсии
 
     @Override
     public void die() {
         System.out.println("Этот человек не дожил до пенсии");
     }
-
-
-    //@Override
-    //public double calculationPension() {
-     //   PensionFund pensionFund = new PensionFund( "MyKat",true,"10.01.2012" );
-     //   pensionFund.calculatePension(45, 1000, 2300);
-      //  return calculationPension();
-      //    }
 
     public double getMinSalary() {
         return minSalary;
@@ -62,8 +62,31 @@ public class Worker extends Person implements AbleToCalculatePension {
         this.month = month;
     }
 
+    public List<Company> getCompanyList() {
+        return companyList;
+    }
+
+    public void setCompanyList(List<Company> companyList) {
+        this.companyList = companyList;
+    }
+
+    public void infoAboutCompanies() {
+        System.out.print("Я работал в следующих компаниях: ");
+        boolean start = true;
+
+        for (Company company : companyList) {
+            if (start) {
+                System.out.print(company.getName());
+                start = false;
+            }
+            else {
+                System.out.print(", " + company.getName());
+            }
+        }
+    }
+
     public void setNewSalary() {
-        //Sex sex = getSex();
+        //classes.Sex sex = getSex();
 //
         //switch (sex) {
         //    case MALE:
@@ -75,15 +98,15 @@ public class Worker extends Person implements AbleToCalculatePension {
         //        maxSalary *= 1.6;
         //}
 
-        //if (month.equals(Month.DECEMBER)) {
+        //if (month.equals(classes.Month.DECEMBER)) {
         //    minSalary *= 10;
         //    maxSalary *= 10;
         //}
-        //else if (month.equals(Month.NOVEMBER)) {
+        //else if (month.equals(classes.Month.NOVEMBER)) {
         //    minSalary *= 2;
         //    maxSalary *= 2;
         //}
-        //else if (month.equals(Month.JANUARY)) {
+        //else if (month.equals(classes.Month.JANUARY)) {
         //    minSalary *= 1.1;
         //    maxSalary *= 1.1;
         //}
@@ -120,19 +143,39 @@ public class Worker extends Person implements AbleToCalculatePension {
 
     }
 
+    @Override
+    public double requestFundToCalculatePension() {
+        int years = getYears();
+        int additionalSalary = 0;
+        if (getChildren() != null) {
+            additionalSalary = getChildren().size() * MONEY_PER_CHILD;
+        }
+        additionalSalary += minSalary;
+        double maxPension = 0.0;
+        for (PensionFund fund : availablePensionFunds) {
+            double result = fund.calculatePension(years, additionalSalary, maxSalary);
+            if (result > maxPension) {
+                maxPension = result;
+            }
+        }
 
+        return maxPension;
+    }
 
-
-
+    @Override
+    public String toString() {
+        return "classes.Worker{" +
+                "minSalary=" + minSalary +
+                ", maxSalary=" + maxSalary +
+                ", month=" + month +
+                '}';
+    }
 
     @Override
     public double requestFundToCalculationPension() {
-        PensionFund pensionFund = new PensionFund("Пенсионный фонд Берлин ", Fund.STATE, "16-05-2000" );
-        int age = getAge();
-        double newSalary = minSalary + ( getKids().size() * 200);
-       double result = pensionFund.calculatePension(age, newSalary, maxSalary);
-        return result   ;
+        return 0;
     }
 }
+
 
 

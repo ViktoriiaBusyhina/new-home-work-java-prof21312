@@ -11,7 +11,12 @@ public class Pensioner extends Person{
     public void die() {
         System.out.println("и, что-то произошло....");
         super.die();
-        System.out.println("Ага, вот так случилось! Зато у меня " + getKids().size() + "детей");
+        System.out.println("Ага, вот так случилось! Зато у меня " + getChildren().size() + "детей");
+    }
+
+    @Override
+    public double requestFundToCalculatePension() {
+        return 0;
     }
 
     public void abc(int a) {
