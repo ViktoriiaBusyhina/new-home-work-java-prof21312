@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Person {
+public abstract class Person implements Comparable<Person> {
 
     //1) Добавьте класс-утилиту для нахождения среднего значения
     //а) метод, в который как параметры приходят 2 числа и возвращает среднее значение
@@ -138,5 +138,18 @@ public abstract class Person {
                 ", height=" + height +
                 ", weight=" + weight +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        int firstNameLen = name.length();
+        int secondNameLen = o.name.length();
+        if (firstNameLen != secondNameLen) {
+        return Integer.compare(firstNameLen, secondNameLen);
+        }
+        else {
+            return Integer.compare(years, o.years);
+        }
+
     }
 }

@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -170,8 +168,17 @@ public class Main {
         worker.infoAboutChildren();
 
         Company microsoft = new Company("Microsoft");
+        Map<String, String > holidays = new HashMap<>();
+        holidays.put("Christmas", "25.12");
+        microsoft.setHolidays(holidays);
+
+
+
         Company google = new Company("Google");
         //List<Company> companyList = List.of(microsoft, google);
+        holidays.put("New Year", "31.12");
+        google.setHolidays(holidays);
+
 
         List<Company> companyList = new ArrayList<>();
         companyList.add(microsoft);
